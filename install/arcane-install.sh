@@ -37,7 +37,7 @@ cd /opt/arcane
 curl -fsSL "https://raw.githubusercontent.com/getarcaneapp/arcane/refs/heads/main/docker/examples/compose.basic.yaml" -o "/opt/arcane/compose.yaml"
 
 msg_info "Setup Arcane Environment"
-curl -fsSL "https://github.com/getarcaneapp/arcane/raw/refs/heads/main/.env.example" -o "/opt/arcane/.env"
+curl -fsSL "https://raw.githubusercontent.com/getarcaneapp/arcane/refs/heads/main/.env.example" -o "/opt/arcane/.env"
 APP_URL="localhost:3552"
 ENCRYPTION_KEY=$(openssl rand -base64 32 | tr -d '/+=')
 JWT_SECRET=$(openssl rand -base64 24 | tr -d '/+=')
