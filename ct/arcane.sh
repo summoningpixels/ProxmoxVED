@@ -42,12 +42,6 @@ function update_script() {
     msg_error "Failed to create backup of ${COMPOSE_BASENAME}!"
     exit 1
   }
-  GITHUB_URL="https://github.com/getarcaneapp/arcane/blob/main/docker/examples/compose.basic.yaml"
-  if ! curl -fsSL "$GITHUB_URL" -o "$COMPOSE_FILE"; then
-    msg_error "Failed to download ${COMPOSE_BASENAME} from GitHub!"
-    mv "$BACKUP_FILE" "$COMPOSE_FILE"
-    exit 1
-  fi
   
   $STD docker compose -p arcane -f "$COMPOSE_FILE" --env-file /opt/arcane/.env pull
   $STD docker compose -p arcane -f "$COMPOSE_FILE" --env-file /opt/arcane/.env up -d
